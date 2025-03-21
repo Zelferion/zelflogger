@@ -1,4 +1,4 @@
-package config
+package zelflogger
 
 type Config struct {
 	RedisLogging    bool
