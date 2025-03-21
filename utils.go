@@ -9,11 +9,11 @@ import (
 	"time"
 )
 
-var RepeatedString = DecorDim(strings.Repeat("-", 145))
+var RepeatedString = Style.Dim(strings.Repeat("-", 145))
 
 func ErrorLogger(a ...any) {
 	var log string
-	TimeStamp := Color..Cyan(GetTime())
+	TimeStamp := Color.Cyan(GetTime())
 	Type := Color.Red(fmt.Sprintf("[%v]", "Error"))
 	log = fmt.Sprintf("[%s] %s %s", TimeStamp, Type, Color.Red(fmt.Sprint(a...)))
 	fmt.Println(log)
@@ -49,9 +49,9 @@ func HeaderLogger(r *http.Request) {
 	if ok {
 		Data = fmt.Sprintf("%s: %s %s: %s", Color.Cyan("username"), user, ColorYellow("password"), password)
 	}
-	fmt.Print(DecorDim(Color.Green(fmt.Sprintf("%s\n", Header))))
+	fmt.Print(Style.Dim(Color.Green(fmt.Sprintf("%s\n", Header))))
 	if ok {
-		fmt.Print(DecorDim(fmt.Sprintf("%s\n", Data)))
+		fmt.Print(Style.Dim(fmt.Sprintf("%s\n", Data)))
 	}
 }
 
@@ -62,18 +62,18 @@ func BodyLogger(r *http.Request) {
 	if string(bodyBytes) == "" {
 		return
 	}
-	fmt.Print(DecorDim(Color.Yellow("Request Body: ", string(bodyBytes))))
+	fmt.Print(Style.Dim(Color.Yellow("Request Body: ", string(bodyBytes))))
 	fmt.Print("\n")
 }
 
 func TimeLogger(r *http.Request, Time time.Time) {
-	timeTaken := DecorItalic(Color.Cyan(time.Since(Time)))
-	fmt.Println(DecorDim("Time taken to resolve the request of "), r.RemoteAddr, " : ", timeTaken)
+	timeTaken := Style.Italic(Color.Cyan(time.Since(Time)))
+	fmt.Println(Style.Dim("Time taken to resolve the request of "), r.RemoteAddr, " : ", timeTaken)
 }
 
 func RequestLogger(r *http.Request) {
 	Type := Color.Yellow(fmt.Sprintf("[%v]", "Incoming Request"))
-	UserIp := DecorItalic(Color.Magenta(r.RemoteAddr))
+	UserIp := Style.Italic(Color.Magenta(r.RemoteAddr))
 	Method := Color.Blue(r.Method)
 	URL := Color.BrightGreen(ReqUrl(r))
 	DataLength := Color.BrightYellow(r.ContentLength)
@@ -97,7 +97,7 @@ func ResolveJsonLog(b any) error {
 			return err
 		}
 
-		fmt.Print(DecorDim(fmt.Sprintf("Response Body: %s\n", string(jsonData))))
+		fmt.Print(Style.Dim(fmt.Sprintf("Response Body: %s\n", string(jsonData))))
 		return nil
 	}
 	return nil
@@ -108,9 +108,9 @@ func ResolveResp(t time.Time, r *http.Request) {
 		Type := Color.Green(fmt.Sprintf("[%v]", "Resolved Request"))
 		var TimeTaken string
 		if Conf.TimestampsLogging {
-			TimeTaken = DecorItalic(Color.Cyan(time.Since(t)))
+			TimeTaken = Style.Italic(Color.Cyan(time.Since(t)))
 		}
-		UserIp := DecorItalic(Color.Magenta(r.RemoteAddr))
+		UserIp := Style.Italic(Color.Magenta(r.RemoteAddr))
 		TimeStamp := Color.Cyan(GetTime())
 		fmt.Printf("[%s] %s from %s. %v\n", TimeStamp, Type, UserIp, TimeTaken)
 		fmt.Printf("%s\n\n\n\n", RepeatedString)
