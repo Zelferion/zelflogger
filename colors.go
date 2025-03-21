@@ -1,9 +1,5 @@
 package zelflogger
 
-import (
-	"fmt"
-)
-
 const (
 	// Foreground Colors
 	Black         = "\033[30m"

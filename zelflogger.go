@@ -1,5 +1,9 @@
 package zelflogger
 
+import (
+	"fmt"
+)
+
 type Style interface {
 	Bold(...any) string
 	Dim(...any) string
