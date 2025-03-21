@@ -4,8 +4,7 @@ import (
 	"fmt"
 )
 
-type Style struct {
-}
+type Style struct
 
 func (Style) Bold(i ...any) string {
 	zxc := fmt.Sprintf("%s%v%s", Bold, fmt.Sprint(i...), Reset)
@@ -52,8 +51,7 @@ func (Style) Strikethrough(i ...any) string {
 	return zxc
 }
 
-type Color struct {
-}
+type Color struct
 
 func (Color) Black(i ...any) string {
 	zxc := fmt.Sprintf("%s%v%s", Black, fmt.Sprint(i...), Reset)
