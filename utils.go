@@ -11,7 +11,7 @@ import (
 
 var RepeatedString = Style{}.Dim(strings.Repeat("-", 145))
 
-func ErrorLogger(a ...any) {
+func ErrorLogger(a ...interface{}) {
 	var log string
 	TimeStamp := Color{}.Cyan(GetTime())
 	Type := Color{}.Red("\"Error\"")
@@ -19,7 +19,7 @@ func ErrorLogger(a ...any) {
 	fmt.Println(log)
 }
 
-func InfoLogger(a ...any) {
+func InfoLogger(a ...interface{}) {
 	var log string
 	TimeStamp := Color{}.Black(GetTime())
 	Type := Color{}.BrightBlack("\"Info\"")
@@ -95,7 +95,7 @@ func MessageLogger(ype string, msg string) {
 	fmt.Printf("[%s] %s %s\n", TimeStamp, Type, msg)
 }
 
-func ResolveJsonLog(b any) error {
+func ResolveJsonLog(b interface{}) error {
 	if b == nil {
 		return nil
 	}
