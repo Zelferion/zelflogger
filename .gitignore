@@ -1,7 +1,3 @@
-# Ignore Go module file
-go.mod
-
-
 # Ignore Go module cache and binaries
 go.sum
 *.exe
