@@ -12,6 +12,8 @@ const (
 	FgWhite         = "\033[37m"
 
   FgBrightBlack   = "\033[38;5;244m"
+  FgFatal         = "\033[38;5;52m" 
+
   FgBrightRed     = "\033[91m"
   FgBrightGreen   = "\033[92m"
   FgBrightYellow  = "\033[93m"

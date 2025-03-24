@@ -11,20 +11,43 @@ import (
 
 var RepeatedString = Style{}.Dim(strings.Repeat("-", 145))
 
+func FatalLogger(a ...interface{}) {
+	var log string
+	TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
+	Type := Style{}.Bold(Color{}.FatalRed("\"Fatal\""))
+	log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.FatalRed(fmt.Sprint(a...)))
+	fmt.Println(log)
+}
+
 func ErrorLogger(a ...interface{}) {
 	var log string
-	TimeStamp := Color{}.Cyan(GetTime())
+	TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
 	Type := Color{}.Red("\"Error\"")
-	log = fmt.Sprintf("[%s] [%s] - %s", TimeStamp, Type, Color{}.Red(fmt.Sprint(a...)))
+	log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.Red(fmt.Sprint(a...)))
 	fmt.Println(log)
 }
 
 func InfoLogger(a ...interface{}) {
 	var log string
-	TimeStamp := Color{}.Black(GetTime())
+	TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
 	Type := Color{}.BrightBlack("\"Info\"")
-	log = fmt.Sprintf("[%s] [%s] - %s", TimeStamp, Type, Color{}.Red(fmt.Sprint(a...)))
+	log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.BrightBlack(fmt.Sprint(a...)))
 	fmt.Println(log)
+}
+
+
+func WarnLogger(a ...interface{}) {
+	var log string
+	TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
+	Type := Color{}.Yellow("\"Warn\"")
+	log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.Yellow(fmt.Sprint(a...)))
+	fmt.Println(log)
+}
+
+func MessageLogger(ype string, msg string) {
+  Type := Color{}.BrightGreen(fmt.Sprintf("\"%v\"", ype))
+  TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]" ,GetTime()))
+  fmt.Printf("%s %s - %s\n", TimeStamp, Type, Color{}.BrightGreen(msg))
 }
 
 func GetTime() string {
@@ -89,11 +112,6 @@ func RequestLogger(r *http.Request) {
 	fmt.Printf("[%s] %s \"%s - %s\" from %s. %v bytes\n", TimeStamp, Type, URL, Method, UserIp, DataLength)
 }
 
-func MessageLogger(ype string, msg string) {
-	Type := Color{}.Yellow(fmt.Sprintf("[%v]", ype))
-	TimeStamp := Color{}.Cyan(GetTime())
-	fmt.Printf("[%s] %s %s\n", TimeStamp, Type, msg)
-}
 
 func ResolveJsonLog(b interface{}) error {
 	if b == nil {
@@ -125,3 +143,6 @@ func ResolveResp(t time.Time, r *http.Request) {
 	}
 }
 
+func ColorText(col string, symb string) string {
+  return fmt.Sprintf("%v%s%v", col, symb, Reset)
+}

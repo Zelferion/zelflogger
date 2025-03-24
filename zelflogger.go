@@ -6,7 +6,7 @@ import (
 
 type Style struct {}
 
-func (*Style) Bold(i ...interface{}) string {
+func (Style) Bold(i ...interface{}) string {
 	zxc := fmt.Sprintf("%s%v%s", Bold, fmt.Sprint(i...), Reset)
 	return zxc
 }
@@ -52,6 +52,11 @@ func (Style) Strikethrough(i ...interface{}) string {
 }
 
 type Color struct {}
+
+func (Color) FatalRed(i ...interface{}) string {
+	zxc := fmt.Sprintf("%s%v%s", FgFatal, fmt.Sprint(i...), Reset)
+	return zxc
+}
 
 func (Color) Black(i ...interface{}) string {
 	zxc := fmt.Sprintf("%s%v%s", FgBlack, fmt.Sprint(i...), Reset)
