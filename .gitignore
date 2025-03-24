@@ -1,0 +1,25 @@
+# Ignore Go module file
+go.mod
+
+# Ignore Go module cache and binaries
+go.sum
+*.exe
+*.out
+*.test
+*.o
+*.a
+
+# Ignore build artifacts
+/bin/
+/pkg/
+/vendor/
+
+# Ignore IDE/editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore environment files
+.env
+
