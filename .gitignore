@@ -1,6 +1,7 @@
 # Ignore Go module file
 go.mod
 
+
 # Ignore Go module cache and binaries
 go.sum
 *.exe
@@ -23,3 +24,4 @@ go.sum
 # Ignore environment files
 .env
 
+.gitignore
