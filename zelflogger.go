@@ -113,7 +113,7 @@ func (Color) BrightBlue(i ...interface{}) string {
 	return zxc
 }
 
-func (Color) BrightGreen(i ...interface{}) string {
+func (Color) BrightGreen(i ...any) string {
 	zxc := fmt.Sprintf("%s%v%s", FgBrightGreen, fmt.Sprint(i...), Reset)
 	return zxc
 }

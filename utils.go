@@ -44,10 +44,10 @@ func WarnLogger(a ...interface{}) {
 	fmt.Println(log)
 }
 
-func MessageLogger(ype string, msg string) {
+func MessageLogger(ype string, msg ...any) {
   Type := Color{}.BrightGreen(fmt.Sprintf("\"%v\"", ype))
   TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]" ,GetTime()))
-  fmt.Printf("%s %s - %s\n", TimeStamp, Type, Color{}.BrightGreen(msg))
+  fmt.Printf("%s %s - %s\n", TimeStamp, Type, Color{}.BrightGreen(msg...))
 }
 
 func GetTime() string {
