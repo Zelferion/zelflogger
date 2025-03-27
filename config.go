@@ -10,7 +10,11 @@ type Config struct {
 	ErrorLogging    bool
 
 	TimestampsLogging bool
-	JwtSecret         string
+  Debug bool
+  DebugOne bool
+  DebugTwo bool
+  DebugThree bool
+  DebugFour bool
 }
 
 var Conf = &Config{
@@ -23,6 +27,11 @@ var Conf = &Config{
 	ErrorLogging:    true,
 
 	TimestampsLogging: true,
+  Debug: true,
+  DebugOne: true,
+  DebugTwo: true,
+  DebugThree: true,
+  DebugFour: true,
 }
 
 // func Init(obj Config) *Config {

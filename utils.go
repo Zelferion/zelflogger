@@ -35,6 +35,51 @@ func InfoLogger(a ...interface{}) {
 	fmt.Println(log)
 }
 
+func DebugLogger(a ...interface{}) {
+  if Conf.Debug == true {
+    var log string
+    TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
+    Type := Color{}.ColorDebug("\"Debug\"")
+    log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.ColorDebug(fmt.Sprint(a...)))
+    fmt.Println(log)
+  }
+}
+func DebugOneLogger(a ...interface{}) {
+  if Conf.DebugOne == true {
+    var log string
+    TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
+    Type := Color{}.ColorDebug("\"Debug\"")
+    log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.ColorDebug(fmt.Sprint(a...)))
+    fmt.Println(log)
+  }
+}
+func DebugTwoLogger(a ...interface{}) {
+  if Conf.DebugTwo == true {
+    var log string
+    TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
+    Type := Color{}.ColorDebug("\"Debug\"")
+    log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.ColorDebug(fmt.Sprint(a...)))
+    fmt.Println(log)
+  }
+}
+func DebugThreeLogger(a ...interface{}) {
+  if Conf.DebugThree == true {
+    var log string
+    TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
+    Type := Color{}.ColorDebug("\"Debug\"")
+    log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.ColorDebug(fmt.Sprint(a...)))
+    fmt.Println(log)
+  }
+}
+func DebugFourLogger(a ...interface{}) {
+  if Conf.DebugFour == true {
+    var log string
+    TimeStamp := Color{}.Cyan(fmt.Sprintf("[%v]", GetTime()))
+    Type := Color{}.ColorDebug("\"Debug\"")
+    log = fmt.Sprintf("%s %s - %s", TimeStamp, Type, Color{}.ColorDebug(fmt.Sprint(a...)))
+    fmt.Println(log)
+  }
+}
 
 func WarnLogger(a ...interface{}) {
 	var log string

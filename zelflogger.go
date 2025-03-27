@@ -137,3 +137,7 @@ func (Color) BrightWhite(i ...interface{}) string {
 	zxc := fmt.Sprintf("%s%v%s", FgBrightWhite, fmt.Sprint(i...), Reset)
 	return zxc
 }
+
+func (Color) ColorDebug(i ...any) string {
+  return fmt.Sprintf("%s%v%s", ColDebug, fmt.Sprint(i...), Reset)
+}

@@ -1,5 +1,9 @@
 package zelflogger
 
+import (
+  "fmt"
+)
+
 const (
 	// Foreground Colors
 	FgBlack         = "\033[30m"
@@ -46,3 +50,4 @@ const (
 	Reset         = "\033[0m"
 )
 
+var ColDebug string = fmt.Sprintf("\033[38;2;%d;%d;%dm", 68, 76, 120)
